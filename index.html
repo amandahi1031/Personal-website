@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amanda Clinical Research Associate Student</title>
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: url('dna-bacterias.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* ===== Header with Banner Image ===== */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)), url('dna-bacterias.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 100px 20px 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 1px 2px 6px rgba(0,0,0,0.3);
+    }
+    header p {
+      margin: 16px 0 0;
+      font-size: 1.3em;
+      font-weight: 500;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.18);
+    }
+    .header-social {
+      margin-top: 22px;
+    }
+    .header-social a {
+      color: #fff;
+      margin: 0 12px;
+      font-size: 1.5em;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .header-social a:hover {
+      color: #90e0ef;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      background: #0077b6;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    nav a {
+      color: white;
+      margin: 0 18px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+    }
+    nav a.active,
+    nav a:hover {
+      color: #90e0ef;
+      border-bottom: 2px solid #90e0ef;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 48px 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      margin-top: 26px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      transition: box-shadow 0.2s;
+    }
+    h2 {
+      color: #0077b6;
+      border-bottom: 2px solid #90e0ef;
+      padding-bottom: 8px;
+      font-size: 2em;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 6px 0 6px 0;
+      font-size: 1.05em;
+      display: flex;
+      align-items: center;
+    }
+    li i {
+      margin-right: 10px;
+      color: #0077b6;
+      font-size: 1em;
+    }
+
+    /* ===== Projects ===== */
+    #projects > img {
+      max-width: 100%;   /* shrink proportionally */
+      height: auto;      /* keep aspect ratio */
+      display: block;    /* remove inline spacing */
+      margin: 0 auto 24px; /* center + add spacing below */
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    }
+
+    .projects {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 800px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+    .project {
+      background: #f7fafc;
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s;
+    }
+    .project:hover {
+      box-shadow: 0 3px 18px rgba(0,0,0,0.12);
+    }
+    .projects img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    }
+    .project .content {
+      display: none;
+      margin-top: 10px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .project h3 {
+      cursor: pointer;
+      color: #0077b6;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .project h3::before {
+      content: '\f0da';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-right: 10px;
+      font-size: 1em;
+      transition: transform 0.3s;
+    }
+    .project.open h3::before {
+      transform: rotate(90deg);
+    }
+    .project h3:hover {
+      color: #023e8a;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* ===== Contact Button ===== */
+    .contact-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(90deg, #0077b6 60%, #90e0ef 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.13em;
+      letter-spacing: 0.5px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .contact-btn:hover {
+      background: linear-gradient(90deg, #023e8a 60%, #90e0ef 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 22px;
+      margin-top: 32px;
+      background-color: #0077b6;
+      color: white;
+      font-size: 1.07em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 -1px 6px rgba(0,0,0,0.07);
+    }
+    footer a {
+      color: #90e0ef;
+      margin-left: 10px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Accessibility focus */
+    a:focus, button:focus {
+      outline: 2px solid #90e0ef;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Amanda Hernández Iñiguez</h1>
+    <p> Aspiring Clinical Research Associate <span aria-hidden="true"> | </span> ICH GCP </p>
+    <div class="header-social">
+      <a href="https://www.linkedin.com/in/amanda-hernández-iñiguez/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:amandahi1031@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </header>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <a href="#about" class="active">About</a>
+    <a href="#projects">My journey</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hey there! I'm Amanda and I’m a young professional diving into the world of clinical research. Over the next few minutes (hopefully a little longer than just a quick scroll), I’d love to share a bit of my journey and why I’m so excited about this field. Feel free to explore this page at your own pace and who knows, maybe this will be the start of a future collaboration :)
+    </p>
+  </section>
+
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2>My journey</h2>
+    <img src="road.jpg" alt="my roadtrip">
+    <div class="projects">
+      <div class="project">
+        <h3 onclick="toggleProject(this)">1. BIOtechnology BSc (UMH) </h3>
+        <div class="content">
+          <p> </p>
+          <ul>
+            <li><i class="fa fa-check"></i> ERASMUS+ exchange semester in Norway</li>
+            <li><i class="fa fa-check"></i> Several internships in different laboratories</li>
+            <li><i class="fa fa-check"></i> Amazing people that I met during the journey </li>
+          </ul>
+        </div>
+      </div>
+      <div class="project">
+        <h3 onclick="toggleProject(this)">2. MSc in Engineering in Biotechnology (DTU)</h3>
+        <div class="content">
+          <p>Because of my interest in bioprocess development, I decided to enroll in an MSc programme focused on fermentations. In this regard, there is no better place than the Technical University of Denmark (DTU), which is recognized worldwide for its excellence and long-standing leadership in the development of fermentation processes. For context, DTU is ranked as the <a href="https://www.shanghairanking.com/rankings/gras/2024/RS0220" target="_blank">5th best university</a> in the world in the field of biotechnology and the <a href="https://eurotech-universities.eu/news-and-events/news/dtu-best-technical-university/" target="_blank">top technical university</a> in Europe. What have I learned at DTU? </p>
+          <ul>
+            <li><i class="fa fa-check"></i> Bioprocess optimization and modelling strategies</li>
+            <li><i class="fa fa-check"></i> Scale up/down procedures</li>
+            <li><i class="fa fa-check"></i> GMP procedures </li>
+            <li><i class="fa fa-check"></i> Practical experience in both laboratory and pilot scale </li>
+          </p><a href="Results_David_Oliver_Aguilar_2025-08-19.pdf" target="_blank"> Here </a> you will find the courses that I have taken during my MSc to have a better understanding of my learnings</p>
+          </ul>
+        </div>
+      </div>
+      <div class="project">
+        <h3 onclick="toggleProject(this)">3. Research Assistant at Agrobiomics</h3>
+        <div class="content">
+          <p> During my two years in the MSc programme, I combined my studies with a part-time job at <a href="https://www.agrobiomics.bio/" target="_blank">Agrobiomics</a>, where I initially worked in the Downstream & Analytical Department and later also became involved in the Upstream Department. My tasks at the company included: </p>
+          <ul>
+            <li><i class="fa fa-check"></i> Bioreactor set up and media preparation</li>
+            <li><i class="fa fa-check"></i> Downstream experiments for metabolite recovery from fermentation broth</li>
+            <li><i class="fa fa-check"></i> Routinary HPLC analysis and method development</li>
+            <li><i class="fa fa-check"></i> Presentation of both bioreactor batch and downstream experiment results to managers </li>
+            <p> During my time at Agrobiomics, I’ve learned to be more flexible and to work effectively in multicultural environments, while always striving to solve as many problems as possible. You know, standard start-up life :) <p> 
+          </ul>
+        </div>
+      </div>
+      <div class="project">
+        <h3 onclick="toggleProject(this)">4. MSc Thesis project at Bioneer</h3>
+        <div class="content">
+          <p>Because of my interest in expanding my bioprocess development expertise into mammalian cell culture, I had the opportunity to join <a href="https://bioneer.dk/" target="_blank">Bioneer</a>, a CDMO company, where I am working on a project focused on optimizing fed-batch intensified processes for CHO cell culture. As part of this project, I will carry out the following activities: </p>
+          <ul>
+            <li><i class="fa fa-check"></i> Application of DoE to optimize process intensification </li>
+            <li><i class="fa fa-check"></i> Cell cultures in AMBR250 for optimization validation</li>
+            <li><i class="fa fa-check"></i> Potential scale up to 2L vessel </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <p>How might I be able to help you?<p>
+      <li><i class="fa-solid fa-flask"></i> Design of Experiments (DoE) for Upstream & Downstream experiments and its execution</li>
+      <li><i class="fa-solid fa-dna"></i> Cell Culture/Fermentation process optimization & Batch data analysis</li>
+      <li><i class="fa-solid fa-database"></i> Implementation of Python and AI in points 1 and 2</li>
+      <li><i class="fa-solid fa-chart-line"></i>Reporting and presentation of scientific data </li>
+      <li><i class="fa-solid fa-gear"></i> HPLC and LCMS analysis including method development</li>
+      
+    </ul>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="margin-top:22px; text-align:center;">
+      Connect with me on <a href="https://www.linkedin.com/in/davidoliveraguilar" target="_blank">LinkedIn</a> if you would like to exchange ideas!
+    </p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 David Oliver Aguilar | Bioprocess Scientist
+    <a href="mailto:davidoliveraguilar@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/David5Oliver" target="_blank"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Project toggle animation
+    function toggleProject(element) {
+      let project = element.parentElement;
+      let content = element.nextElementSibling;
+      let isOpen = content.style.display === "block";
+      // Close any other open projects (accordion behavior)
+      document.querySelectorAll('.project .content').forEach(function(el){
+        el.style.display = "none";
+        el.parentElement.classList.remove("open");
+      });
+      // Toggle this one
+      content.style.display = isOpen ? "none" : "block";
+      project.classList.toggle("open", !isOpen);
+    }
+
+    // Navbar active link on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav a");
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
